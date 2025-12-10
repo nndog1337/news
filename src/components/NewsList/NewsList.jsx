@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './style.module.css'
 import NewsItem from '../NewsItem/NewsItem'
+import withSkeleton from '../../assets/helpers/hocs/withSkeleton'
 
 function NewsList({ news }) {
   return (
@@ -12,4 +13,6 @@ function NewsList({ news }) {
   )
 }
 
-export default NewsList
+const NewsListWithSkeleton = withSkeleton(NewsList, 'item', 10)
+
+export default NewsListWithSkeleton

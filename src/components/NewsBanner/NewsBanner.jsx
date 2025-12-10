@@ -2,6 +2,7 @@ import React from 'react'
 import styles from './style.module.css'
 import { formatTimeAgo } from '../../assets/helpers/formatTimeAgo'
 import Image from '../Image/Image'
+import withSkeleton from '../../assets/helpers/hocs/withSkeleton'
 
 function NewsBanner({ item }) {
   return (
@@ -13,4 +14,6 @@ function NewsBanner({ item }) {
   )
 }
 
-export default NewsBanner
+const NewsBannerWithSkeleton = withSkeleton(NewsBanner, 'banner', 1)
+
+export default NewsBannerWithSkeleton
