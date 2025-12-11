@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { forwardRef } from 'react'
 import { formatData } from '../../assets/helpers/formatData'
 import styles from "./style.module.css"
 
-function Categories({categories, setSelectedCategory, selectedCategory}) {
+const Categories =  forwardRef(
+  ({categories, setSelectedCategory, selectedCategory}, ref) => {
   return (
-    <div className={styles.categories}>
+    <div ref={ref} className={styles.categories}>
       <button onClick={() => setSelectedCategory(null)} className={!selectedCategory ? styles.active : styles.item}>
           All
         </button>
@@ -17,6 +18,8 @@ function Categories({categories, setSelectedCategory, selectedCategory}) {
       } )}
     </div>
   )
-}
+})
+
+Categories.displayName = 'Categories'
 
 export default Categories
