@@ -5,6 +5,7 @@ import { useFetch } from '../../assets/helpers/hooks/useFetch'
 import { getCategories } from '../../api/apiNews'
 import Categories from '../Categories/Categories'
 import Search from '../Search/Search'
+import Slider from '../Slider/Slider'
 
 function NewsFilters({filters, changeFilter}) {
 
@@ -12,10 +13,14 @@ function NewsFilters({filters, changeFilter}) {
 
   return (
     <div className={styles.filters}>
-      {dataCategories ? <Categories
-      categories={dataCategories.categories} 
-      setSelectedCategory={(category) => changeFilter('category', category)} 
-      selectedCategory={filters.category}/> : null}
+      {dataCategories ?
+      <Slider>
+        <Categories
+        categories={dataCategories.categories} 
+        setSelectedCategory={(category) => changeFilter('category', category)} 
+        selectedCategory={filters.category}/>
+      </Slider>
+      : null}
 
       <Search keywords={filters.keywords} setKeywords={(keywords) => changeFilter('keywords', keywords)} />
     </div>
